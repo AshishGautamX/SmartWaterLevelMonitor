@@ -84,15 +84,12 @@ This project is an IoT-based system designed to monitor the water level of a tan
 ---
 
 ### Contributors
+- **[Suraj Sharma]** (Owner/Guide)
 - **[Ashish Gautam](https://github.com/AshishGautamX)** (Project Lead)
 - **[Kantekar Abhishek]**
 - **[Ankit Tiwari]**
 - **[Amir Bhagat]**
 - **[Chikati Ganesh]**
-- 
-- **[Suraj Sharma]** (Owner/Guide)
-
----
 
 ### License
 This project is licensed under the MIT License. See `LICENSE` for more details.
