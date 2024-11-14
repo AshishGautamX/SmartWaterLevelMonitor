@@ -84,7 +84,7 @@ This project is an IoT-based system designed to monitor the water level of a tan
 ---
 
 ### Contributors
-- **[Your Name](https://github.com/AshishGautamX)** (Project Lead)
+- **[Ashish Gautam](https://github.com/AshishGautamX)** (Project Lead)
 - **[Your Teacher's Name]** (Owner/Guide)
 
 ---
