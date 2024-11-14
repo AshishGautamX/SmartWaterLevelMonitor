@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Level Monitoring</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Water Usage Monitoring</h1>
+    <p>This table displays the water level logs, including when the tank was empty or filled.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Log</th>
+            </tr>
+        </thead>
+        <tbody id="logTable">
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDO4XMK4h_JA7Onw7BmBwKJ5F8uHi7A_xI",
+  authDomain: "water-level-monitoring-s-beffd.firebaseapp.com",
+  databaseURL: "https://water-level-monitoring-s-beffd-default-rtdb.firebaseio.com",
+  projectId: "water-level-monitoring-s-beffd",
+  storageBucket: "water-level-monitoring-s-beffd.firebasestorage.app",
+  messagingSenderId: "159810888904",
+  appId: "1:159810888904:web:58d51e640aaa9383bb31fd",
+  measurementId: "G-V4SQSQY634"
+};
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Reference to the database path where logs are stored
+        var waterLevelRef = firebase.database().ref('water_level_logs');
+
+        // Fetch and display data
+        waterLevelRef.on('value', (snapshot) => {
+            const logTable = document.getElementById('logTable');
+            logTable.innerHTML = '';  // Clear existing data
+
+            snapshot.forEach((childSnapshot) => {
+                const logData = childSnapshot.val();
+
+                // Create a row for each log entry
+                const row = document.createElement('tr');
+                const timestampCell = document.createElement('td');
+                const logCell = document.createElement('td');
+
+                timestampCell.textContent = logData.timestamp;
+                logCell.textContent = logData.log;
+
+                row.appendChild(timestampCell);
+                row.appendChild(logCell);
+                logTable.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>   
